@@ -1,1 +1,15 @@
-local scriptData = game:HttpGet("https://pastebin.com/raw/enEpd9EK")
+local success, payload = pcall(function()
+    return game:HttpGet("https://pastebin.com/raw/enEpd9EK")
+end)
+
+if success and payload then
+    local executed, err = pcall(function()
+        local func = assert(loadstring(payload))
+        func()
+    end)
+    if not executed then
+        warn("[Loader Error] Failed to execute payload: " .. tostring(err))
+    end
+else
+    warn("[Loader Error] Failed to fetch code from Pastebin.")
+end
